@@ -289,7 +289,7 @@ function Mint() {
                             </button>
                             <p>0.1ETH</p>
 
-                            {blockchain.errorMsg !== "" ? (
+                            {/* {blockchain.errorMsg !== "" ? (
                             <>
                                 <s.SpacerSmall />
                                 <s.TextDescription
@@ -301,7 +301,7 @@ function Mint() {
                                 {blockchain.errorMsg}
                                 </s.TextDescription>
                             </>
-                            ) : null}
+                            ) : null} */}
 
                         </>
                         ) : (
@@ -338,10 +338,7 @@ function Mint() {
                             <p>0.1ETH</p>
                         </>
                         )}
-                        
-                        
                     </div>
-                
                     <div>
                         <h4>{CONFIG.MAX_SUPPLY - data.totalSupply} LEFT</h4>
                         <span className="connect"> Connect your wallet to start minting.</span>
