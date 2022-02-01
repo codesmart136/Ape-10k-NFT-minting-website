@@ -213,11 +213,13 @@ function Mint() {
 
     useEffect(() => {
         getData();
+    }, [blockchain.account]);
+
 
     return(
         <section id="mint" className="mint">
             <div className="mint-slider">
-                <img src="/assets/img/1.gif" alt=" man" />
+                <img src="/assets/img/1.gif" alt="" />
 
                 {/* <Swiper
                     modules={[Navigation, Autoplay]}
