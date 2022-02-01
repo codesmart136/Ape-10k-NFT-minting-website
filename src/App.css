@@ -4,7 +4,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  max-width: 100%;
 }
 
 html {
@@ -132,7 +131,7 @@ main {
 }
 
 .container {
-  width: 1300px;
+  width: 90%;
   margin: auto;
 }
 
@@ -389,7 +388,7 @@ section > h2 span {
   transform: skewY(-5deg);
 }
 
-.about-animation .MS-content {
+/* .about-animation .MS-content {
   white-space: nowrap;
   overflow: hidden;
   margin: auto;
@@ -406,6 +405,11 @@ section > h2 span {
   vertical-align: middle;
   text-align: center;
   transform: skewX(12deg);
+} */
+
+.MS-content .item img {
+  padding: 0 10px;
+  width: 100%;
 }
 
 .roadmap-main {
@@ -420,13 +424,13 @@ section > h2 span {
 }
 
 .roadmap-content {
-  width: 585px;
+  width: 40%;
   padding: 12px;
   background-color: black;
   color: white;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   font-size: 14px;
   margin-left: auto;
 }
@@ -547,13 +551,12 @@ section > h2 span {
 }
 
 .footer-link {
-  height: 80px;
   background-color: black;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 70px;
+  padding: 10px 70px;
 }
 
 .footer-link nav ul {
@@ -644,13 +647,53 @@ section > h2 span {
   .mint-slider {
     width: 100%;
   }
-  .roadmap-content img {
-    width : 400px
+  .roadmap-content {
+    display: flex;
+    flex-direction: column;
   }
   .faq-card h3 {
     font-size: 14px;
   }
   .faq-card p {
     font-size: 10px;
+  }
+  .team-container {
+    margin-top: 80px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .team-card {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  .footer-link nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+  .footer-link {
+    flex-direction: column;
+  }
+  .about p {
+    width: auto;
+  }
+  .roadmap-content {
+    width: 40%;
+  }
+  .roadmap-content img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .mint-content-main {
+    flex-direction: column;
   }
 }
