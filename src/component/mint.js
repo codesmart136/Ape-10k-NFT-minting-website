@@ -219,7 +219,9 @@ function Mint() {
     return(
         <section id="mint" className="mint">
             <div className="mint-slider">
-                <Swiper
+                <img src="/assets/img/1.gif" alt=" man" />
+
+                {/* <Swiper
                     modules={[Navigation, Autoplay]}
                     spaceBetween={0}
                     slidesPerView={1}
@@ -241,7 +243,7 @@ function Mint() {
                     <SwiperSlide>
                         <img src="/assets/img/slide.png" alt="slide" />
                     </SwiperSlide>
-                </Swiper>
+                </Swiper> */}
             </div>
             <div className="mint-main">
                 <div className="mint-content">
