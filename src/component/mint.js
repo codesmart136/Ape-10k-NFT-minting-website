@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/autoplay';
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+require('swiper/swiper.min.css');
+require('swiper/modules/navigation/navigation.min.css');
+require('swiper/modules/autoplay/autoplay.min.css');
 import { Navigation, Autoplay } from "swiper";
 
 

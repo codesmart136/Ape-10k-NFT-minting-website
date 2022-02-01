@@ -1,6 +1,6 @@
 import react from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+require('swiper/swiper.min.css');
 import { useState } from "react/cjs/react.development";
 
 function Faq() {
