@@ -213,8 +213,6 @@ function Mint() {
 
     useEffect(() => {
         getData();
-    }, [blockchain.account]);
-
 
     return(
         <section id="mint" className="mint">
