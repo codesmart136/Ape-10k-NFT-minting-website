@@ -255,27 +255,91 @@ function Mint() {
             
                     <h4  style={{marginBottom:"15px", fontSize:"10px"}}>Access to the WCC club with holder chat & roadmap benefits.</h4>
                     <div className="mint-content-main" style={{paddingTop:"15px", paddingBottom:"15px"}}>
-                        <div>
-                            <a 
-                                disabled={claimingNft ? 1 : 0}
+                        
+                        {blockchain.account === "" ||
+                        blockchain.smartContract === null ? (
+                        <>
+                            <div>
+                                <a 
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        decrementMintAmount();
+                                    }}
+                                >-</a>
+                                <span>{mintAmount}</span>
+                                <a 
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        incrementMintAmount();
+                                    }}
+                                >
+                                    +
+                                </a>
+                            </div>
+                            <button 
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    decrementMintAmount();
-                                }}
-                            >-</a>
-                            <span>{mintAmount}</span>
-                            <a 
-                                disabled={claimingNft ? 1 : 0}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    incrementMintAmount();
+                                    dispatch(connect());
+                                    getData();
                                 }}
                             >
-                                +
-                            </a>
-                        </div>
-                        <button >MINT</button>
-                        <p>0.1ETH</p>
+                                MINT
+                            </button>
+                            <p>0.1ETH</p>
+
+                            {blockchain.errorMsg !== "" ? (
+                            <>
+                                <s.SpacerSmall />
+                                <s.TextDescription
+                                style={{
+                                    textAlign: "center",
+                                    color: "var(--accent-text)",
+                                }}
+                                >
+                                {blockchain.errorMsg}
+                                </s.TextDescription>
+                            </>
+                            ) : null}
+
+                        </>
+                        ) : (
+                        <>
+                            <div>
+                                <a 
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        decrementMintAmount();
+                                    }}
+                                >-</a>
+                                <span>{mintAmount}</span>
+                                <a 
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        incrementMintAmount();
+                                    }}
+                                >
+                                    +
+                                </a>
+                            </div>
+                            <button 
+                                disabled={claimingNft ? 1 : 0}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    claimNFTs();
+                                    getData();
+                                }}
+                            >
+                                {claimingNft ? "BUSY" : "MINT"}
+                            </button>
+                            <p>0.1ETH</p>
+                        </>
+                        )}
+                        
+                        
                     </div>
                 
                     <div>
@@ -370,15 +434,6 @@ function Mint() {
                         {blockchain.account === "" ||
                         blockchain.smartContract === null ? (
                         <s.Container ai={"center"} jc={"center"}>
-                            <s.TextDescription
-                            style={{
-                                textAlign: "center",
-                                color: "var(--accent-text)",
-                            }}
-                            >
-                            Connect to the {CONFIG.NETWORK.NAME} network
-                            </s.TextDescription>
-                            <s.SpacerSmall />
                             <StyledButton
                             onClick={(e) => {
                                 e.preventDefault();
@@ -386,7 +441,7 @@ function Mint() {
                                 getData();
                             }}
                             >
-                            CONNECT
+                                CONNECT
                             </StyledButton>
                             {blockchain.errorMsg !== "" ? (
                             <>
@@ -410,9 +465,8 @@ function Mint() {
                                 color: "var(--accent-text)",
                             }}
                             >
-                            {feedback}
+                                {feedback}
                             </s.TextDescription>
-                            <s.SpacerMedium />
                             <s.Container ai={"center"} jc={"center"} fd={"row"}>
                             <StyledRoundButton
                                 style={{ lineHeight: 0.4 }}
@@ -424,7 +478,6 @@ function Mint() {
                             >
                                 -
                             </StyledRoundButton>
-                            <s.SpacerMedium />
                             <s.TextDescription
                                 style={{
                                 textAlign: "center",
@@ -433,7 +486,6 @@ function Mint() {
                             >
                                 {mintAmount}
                             </s.TextDescription>
-                            <s.SpacerMedium />
                             <StyledRoundButton
                                 disabled={claimingNft ? 1 : 0}
                                 onClick={(e) => {
@@ -444,18 +496,17 @@ function Mint() {
                                 +
                             </StyledRoundButton>
                             </s.Container>
-                            <s.SpacerSmall />
                             <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                            <StyledButton
-                                disabled={claimingNft ? 1 : 0}
-                                onClick={(e) => {
-                                e.preventDefault();
-                                claimNFTs();
-                                getData();
-                                }}
-                            >
-                                {claimingNft ? "BUSY" : "BUY"}
-                            </StyledButton>
+                                <StyledButton
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                    e.preventDefault();
+                                    claimNFTs();
+                                    getData();
+                                    }}
+                                >
+                                    {claimingNft ? "BUSY" : "BUY"}
+                                </StyledButton>
                             </s.Container>
                         </>
                         )}
